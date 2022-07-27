@@ -12,11 +12,9 @@ app.use(express.urlencoded({extended: false}));
 
 
 app.get('/',function (req,res){
-
     res.render('index');
-
-
 });
+
 
 app.get('/restaurants',function (req, res,){
     const filePath = path.join(__dirname,'data', 'restaurants.json');
@@ -25,6 +23,11 @@ app.get('/restaurants',function (req, res,){
     res.render('restaurants',{
         restaurants: storeRestaurants
     });
+});
+
+app.get('/restaurants/:id',function (req,res){
+    const restaurantId = req.params.id;
+    res.render('restaurants-detail',{rid: restaurantId});
 });
 
 app.get('/about',function (req, res,){
@@ -52,6 +55,6 @@ app.post('/recommend',function (req,res){
 app.get('/confirm',function (req, res,){
     res.render('confirm');
 });
-
+app.get('/restaurant');
 
 app.listen(3000);
