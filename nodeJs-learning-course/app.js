@@ -75,6 +75,10 @@ app.post('/recommend',function (req,res){
 app.get('/confirm',function (req, res,){
     res.render('confirm');
 });
-app.get('/restaurant');
+
+//404 handeling for routes
+app.use(function(req,res){
+    res.render('404');
+});
 
 app.listen(3000);
