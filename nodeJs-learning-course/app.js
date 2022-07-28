@@ -44,6 +44,8 @@ app.get('/restaurants/:id',function (req,res){
             
                 }
             }
+            //Error Handeling
+        res.render('404');            
 
 });
 
