@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="181f297a-dd85-4a1c-b640-d26fdc57f857" name="Changes" comment="" />
+    <list default="true" id="181f297a-dd85-4a1c-b640-d26fdc57f857" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/views/restaurants-detail.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/restaurants.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/restaurants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/includes/restaurants/restaurants.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/includes/restaurants/restaurants.ejs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +37,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2COvFvqw8yIthB1fiQeAJht3n8k" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -42,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -70,7 +81,12 @@
       <workItem from="1658766058550" duration="6509000" />
       <workItem from="1658848431979" duration="8000" />
       <workItem from="1658928312441" duration="1257000" />
-      <workItem from="1658929857634" duration="3902000" />
+      <workItem from="1658929857634" duration="5375000" />
+      <workItem from="1658978177698" duration="748000" />
+      <workItem from="1658978930252" duration="508000" />
+      <workItem from="1658979447437" duration="15000" />
+      <workItem from="1658979512269" duration="4000" />
+      <workItem from="1658979523535" duration="8000" />
     </task>
     <servers />
   </component>
