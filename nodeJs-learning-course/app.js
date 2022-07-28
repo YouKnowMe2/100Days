@@ -45,7 +45,7 @@ app.get('/restaurants/:id',function (req,res){
                 }
             }
             //Error Handeling
-        res.render('404');            
+        res.status(404).render('404');            
 
 });
 
@@ -78,7 +78,15 @@ app.get('/confirm',function (req, res,){
 
 //404 handeling for routes
 app.use(function(req,res){
-    res.render('404');
+    res.status(404).render('404');
+});
+//Server Side Error Handeling
+app.use(function(error,req,res,next){
+    if(error){
+        res.status(500).render('500');
+    }
+    
+
 });
 
 app.listen(3000);
