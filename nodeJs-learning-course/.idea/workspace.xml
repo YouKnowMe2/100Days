@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="181f297a-dd85-4a1c-b640-d26fdc57f857" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/default.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/restaurants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/restaurants.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/restaurants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/restaurants.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/restaurants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +81,7 @@
       <workItem from="1658979447437" duration="15000" />
       <workItem from="1658979512269" duration="4000" />
       <workItem from="1658979523535" duration="8000" />
+      <workItem from="1659067708011" duration="3000" />
     </task>
     <servers />
   </component>

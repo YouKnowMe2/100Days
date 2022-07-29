@@ -12,9 +12,7 @@ router.get('/restaurants',function (req, res,){
     const storeRestaurants = resData.getStoredRestaurant();
 
   
-    if(order != 'asc' && order != 'desc'){
-        order = 'asc';
-    }
+    
     if(order === 'desc'){
         nextOrder = 'asc';
     }
