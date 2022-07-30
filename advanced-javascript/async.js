@@ -16,6 +16,7 @@ async function readFile(){
     }catch(error){
         console.log(error);
     }
+    //will it work
     console.log('File Parsing done.');
     console.log(fileData.toString());
     console.log('Completed the works.');
