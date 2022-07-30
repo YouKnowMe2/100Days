@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 
-function readFile(){
+async function readFile(){
     let fileData;
     // fs.readFile('data.txt',function (error,fileData){
     //
@@ -10,17 +10,17 @@ function readFile(){
     //     //start another async task that sends teh data
     //
     // });
-    fs.readFile('data.txt').then(function (fileData){
-            console.log('File Parsing done.');
-            console.log(fileData.toString());
-            //return anotherASyncOperation
-    }).then( function () {
+    try{
+        fileData = await fs.readFile('data.txt');
 
-    }).catch(function (error){
+    }catch(error){
         console.log(error);
-    });
-    //promised have then method
+    }
+    console.log('File Parsing done.');
+    console.log(fileData.toString());
     console.log('Completed the works.');
+    //return anotherASyncOperation
+    //promised have then method
 
 }
 //callback means asychornous system and it needs a function
