@@ -71,4 +71,14 @@ router.post('/posts/update/:id',async function (req,res){
      await db.query('UPDATE posts SET title = ? , summary = ?, body = ? WHERE id = ?',[ req.body.title, req.body.summary, req.body.content, req.params.id,]);
      res.redirect('/posts');
 });
+
+router.post('/posts/delete/:id',async function (req,res){
+    const data = {
+
+    };
+    await db.query('Delete FROM posts  WHERE id = ?',[req.params.id,]);
+    res.redirect('/posts');
+});
+
+
 module.exports = router;
