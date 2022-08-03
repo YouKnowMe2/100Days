@@ -64,5 +64,11 @@ router.get('/posts/edit/:id',async function (req, res){
         post: posts[0]
     });
 });
+router.post('/posts/update/:id',async function (req,res){
+    const data = {
 
+    };
+     await db.query('UPDATE posts SET title = ? , summary = ?, body = ? WHERE id = ?',[ req.body.title, req.body.summary, req.body.content, req.params.id,]);
+     res.redirect('/posts');
+});
 module.exports = router;
