@@ -5,13 +5,17 @@ const db = require('../data/database');
 const mongodb = require('mongodb');
 
 const ObjectId = mongodb.ObjectId;
+
 router.get('/',function (req,res){
 
     res.redirect('/posts');
 });
 
 router.get('/posts', async function (req,res){
-    res.render('posts-list');
+    const posts = await db.getDb().collection('posts').find( {}, {title: 1, summary: 1, 'author.name': 1} ).toArray();
+    res.render('posts-list',{
+        posts: posts
+    });
 });
 router.get('/new-post', async function (req,res){
     const authors = await db.getDb().collection('authors').find().toArray();
