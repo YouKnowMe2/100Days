@@ -11,9 +11,11 @@ router.get('/',function (req,res){
 router.get('/posts', async function (req,res){
     res.render('posts-list');
 });
-router.get('/new-post', function (req,res){
-
-    res.render('create-post');
+router.get('/new-post', async function (req,res){
+    const authors = await db.getDb().collection('authors').find().toArray();
+    res.render('create-post',{
+        authors: authors
+    });
 });
 
 router.post('/store-data', function (req, res){
