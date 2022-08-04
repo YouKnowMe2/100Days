@@ -2,7 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 const db = require('../data/database');
+const mongodb = require('mongodb');
 
+const ObjectId = mongodb.ObjectId;
 router.get('/',function (req,res){
 
     res.redirect('/posts');
@@ -18,8 +20,22 @@ router.get('/new-post', async function (req,res){
     });
 });
 
-router.post('/store-data', function (req, res){
-
+router.post('/store-data', async  function (req, res){
+    const authorId = new ObjectId(req.body.author);
+    const author= await db.getDb().collection('authors').findOne({_id: authorId});
+   const data = {
+     title: req.body.title,
+     summary: req.body.summary,
+     body: req.body.content,
+     date: new Date(),
+     author: {
+         id: authorId ,
+         name: author.name,
+         email: author.email
+     }
+    };
+   const result = await db.getDb().collection('posts').insertOne(data);
+   console.log(result);
    res.redirect('/posts');
 });
 
