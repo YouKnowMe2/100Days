@@ -12,7 +12,7 @@ router.get('/',function (req,res){
 });
 
 router.get('/posts', async function (req,res){
-    const posts = await db.getDb().collection('posts').find( {}, {title: 1, summary: 1, 'author.name': 1} ).toArray();
+    const posts = await db.getDb().collection('posts').find( {}, {_id: 1 , title: 1, summary: 1, 'author.name': 1} ).toArray();
     res.render('posts-list',{
         posts: posts
     });
@@ -39,28 +39,18 @@ router.post('/store-data', async  function (req, res){
      }
     };
    const result = await db.getDb().collection('posts').insertOne(data);
-   console.log(result);
    res.redirect('/posts');
 });
 
 router.get('/post-details/:id',async function (req,res){
-    const postId = req.params.id;
-    const [posts] = await db.query('SELECT posts.*, authors.name AS author_name, authors.email AS author_email FROM posts INNER JOIN authors ON posts.author_id = authors.id WHERE posts.id = ?',[postId]);
-    if( !posts || posts.length ==0){
+    const postId = new ObjectId(req.params.id);
+    const post = await db.getDb().collection('posts').findOne({_id: postId },{ summary:0});
+    if( !post ){
         return res.status(404).render('404');
     }
-    const postData = {
-      ...posts[0],
-      date: posts[0].date.toISOString(),
-        humanReadDate: posts[0].date.toLocaleDateString('en-US',{
-           weekday: 'long',
-           year: 'numeric',
-           month: 'long',
-            day: 'numeric'
-        }),
-    };
+
     res.render('post-detail',{
-        post: postData
+        post: post
     });
 });
 router.get('/posts/edit/:id',async function (req, res){
