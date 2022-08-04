@@ -61,29 +61,25 @@ router.get('/post-details/:id',async function (req,res){
     });
 });
 router.get('/posts/edit/:id',async function (req, res){
-    const postId = req.params.id;
-    const [posts] = await db.query('SELECT * FROM posts WHERE posts.id = ?',[postId]);
+    const postId = new ObjectId(req.params.id);
+    const post = await db.getDb().collection('posts').findOne({_id: postId });
 
-    if( !posts || posts.length ==0){
+    if( !post ){
         return res.status(404).render('404');
     }
     res.render('update-post',{
-        post: posts[0]
+        post: post
     });
 });
 router.post('/posts/update/:id',async function (req,res){
-    const data = {
-
-    };
-     await db.query('UPDATE posts SET title = ? , summary = ?, body = ? WHERE id = ?',[ req.body.title, req.body.summary, req.body.content, req.params.id,]);
+    const postId = new ObjectId(req.params.id);
+     await db.getDb().collection('posts').updateOne( {_id: postId},{ $set: { title: req.body.title, summary: req.body.summary, body: req.body.content} });
      res.redirect('/posts');
 });
 
 router.post('/posts/delete/:id',async function (req,res){
-    const data = {
-
-    };
-    await db.query('Delete FROM posts  WHERE id = ?',[req.params.id,]);
+    const postId = new ObjectId(req.params.id);
+    await db.getDb().collection('posts').deleteOne( {_id: postId});
     res.redirect('/posts');
 });
 
