@@ -4,6 +4,8 @@ const commentSection = document.getElementById('comments');
 const commentsFormElement = document.querySelector('#comments-form form');
 const commentTitle = document.getElementById('title');
 const commentText = document.getElementById('text');
+
+
 function createCommentsList(comments){
 
     const commentListElement = document.createElement('ol');
