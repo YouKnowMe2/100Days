@@ -35,7 +35,27 @@ router.post('/signup', async function (req, res) {
   res.redirect('/login');
 });
 
-router.post('/login', async function (req, res) {});
+router.post('/login', async function (req, res) {
+  const userData = req.body;
+  const enteredEmail = userData.email;
+  const enteredPassword = userData.password;
+
+  const exisitingUser = await db.getDb().collection('users').findOne({email: enteredEmail });
+
+  if(!exisitingUser){
+    console.log('could not log in');
+    return res.redirect('/login');
+  }
+   const passwordEqual = await bcrypt.compare(enteredPassword, exisitingUser.password);
+
+  if(!passwordEqual){
+    console.log('could not log in password error');
+
+    return res.redirect('/login');
+  }
+  console.log('User is authenticated');
+  res.redirect('/admin');
+});
 
 router.get('/admin', function (req, res) {
   res.render('admin');
