@@ -26,11 +26,16 @@ async function fetchComments(event){
     const postId = loadComments.dataset.postid;
     const response = await fetch(`/posts/${postId}/comments `);
     const data = await response.json();
+    if(data && data.length>0){
+        const responseData = createCommentsList(data);
 
-    const responseData = createCommentsList(data);
+        commentSection.innerHTML= '';
+        commentSection.appendChild(responseData);
+    }else{
+        commentSection.firstElementChild.textContent= 'We Could not find any comments. Add One';
+    }
 
-    commentSection.innerHTML= '';
-    commentSection.appendChild(responseData);
+
 
 }
 
