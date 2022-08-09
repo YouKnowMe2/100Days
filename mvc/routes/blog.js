@@ -10,7 +10,6 @@ router.get('/', function (req, res) {
   res.render('welcome', { csrfToken: req.csrfToken() });
 });
 
-r
 router.get('/admin', async function (req, res) {
   if (!res.locals.isAuth) {
     return res.status(401).render('401');
