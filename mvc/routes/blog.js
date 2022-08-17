@@ -114,20 +114,23 @@ router.post('/posts/:id/edit', async function (req, res) {
     return; 
   }
 
-  await db
-    .getDb()
-    .collection('posts')
-    .updateOne(
-      { _id: postId },
-      { $set: { title: enteredTitle, content: enteredContent } }
-    );
+  // await db
+  //   .getDb()
+  //   .collection('posts')
+  //   .updateOne(
+  //     { _id: postId },
+  //     { $set: { title: enteredTitle, content: enteredContent } }
+  //   );
 
+  const updatePost = new Post(enteredTitle,enteredContent,postId);
+  await updatePost.update();
   res.redirect('/admin');
 });
 
 router.post('/posts/:id/delete', async function (req, res) {
   const postId = new ObjectId(req.params.id);
-  await db.getDb().collection('posts').deleteOne({ _id: postId });
+  const deletePost = new Post(null,null,postId);
+  await deletePost.delete();
 
   res.redirect('/admin');
 });
