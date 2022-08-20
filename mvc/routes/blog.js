@@ -3,13 +3,14 @@ const express = require('express');
 const db = require('../data/database');
 const Post = require('../models/post');
 const blogControllers = require("../controllers/post-controllers");
+const  guardRoute = require('../middlewares/auth-protection-middleware');
+
 const router = express.Router();
 
 router.get('/', blogControllers.getHome);
 
+router.use(guardRoute);
 router.get('/admin', blogControllers.getAdmin);
-
-
 
 router.post('/posts', blogControllers.createPost);
 
