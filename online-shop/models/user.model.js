@@ -15,7 +15,14 @@ class User{
           getUserwithSameEmail(){
          return db.getDb().collection('users').findOne({
             email: this.email
-        })
+        });
+          }
+          async existsAlready(){
+                const exisitingUser = await this.getUserwithSameEmail();
+                if(exisitingUser){
+                    return true;
+                }
+                return false;
           }
 
 

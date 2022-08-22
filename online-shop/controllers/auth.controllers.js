@@ -1,21 +1,42 @@
 const User = require('../models/user.model');
 const authUtil = require('../util/authentication');
+const userValid = require('../util/validation');
 
 function getSignup(req,res){
     res.render('customer/auth/signup');
 }
 
 async function signup(req,res,next){
+    if(!userValid.userDetailAreValid(
+        req.body.email,
+        req.body.password,
+        req.body.fullName,
+        req.body.street,
+        req.body.postal,
+        req.body.city
+    ) || !userValid.emailPassIsConfirm(req.body.email, req.body[confirm-email],req.body.password ,req.body[confirm-password])
+    ){
+        res.redirect('/signup');
+        return;
+    }
+
     const user = new User(
         req.body.email,
         req.body.password,
         req.body.fullName,
         req.body.street,
         req.body.postal,
-        req.body.city);
+        req.body.city
+    );
+
 
     try {
-        await user.signup();
+        const existsAlready = await user.existsAlready();
+        if(existsAlready){
+            res.redirect('/signup');
+            return;
+        }
+        user.signup();
     }catch (error){
         next(error);
         return;
@@ -39,6 +60,7 @@ try{
     next(error);
     return;
 }
+
 
 
     if(!existingUser){
