@@ -8,6 +8,12 @@
 <main>
     <h1>Login</h1>
     <form action="/login" method="POST">
+        <% if(inputData.errorMessage) {  %>
+            <section class="alert">
+                <h2>Invalid Input</h2>
+                <p><%= inputData.errorMessage %></p>
+            </section>
+        <% } %>
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
         <p>
             <label for="email">Email Address</label>

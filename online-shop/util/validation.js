@@ -6,7 +6,8 @@ function userCredentialsAreValid(email,password){
     );
 }
 
-function userDetailAreValid(email,password,name,street,postal,city){
+function userDetailAreValid(email,password,name,street,postal,city)
+{
    userCredentialsAreValid(email,password) && !isEmpty(name) && !isEmpty(street) && !isEmpty(postal) && !isEmpty(city);
 }
 function emailPassIsConfirm(email, confirmEmail, password, confirmPassword){
@@ -14,6 +15,6 @@ function emailPassIsConfirm(email, confirmEmail, password, confirmPassword){
 }
 
 module.exports ={
-    userDetailAreValid: userCredentialsAreValid,
+    userDetailAreValid: userDetailAreValid,
     emailPassIsConfirm: emailPassIsConfirm,
 };
