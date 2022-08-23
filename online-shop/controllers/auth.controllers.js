@@ -3,7 +3,7 @@ const authUtil = require('../util/authentication');
 const userValid = require('../util/validation');
 const sessionFlash = require('../util/session-flash');
 function getSignup(req,res){
-    let sessionData = sessionFlash.getSeesionData(req);
+    let sessionData = sessionFlash.getSessionData(req);
     if(!sessionData){
         sessionData = {
             email: '',
