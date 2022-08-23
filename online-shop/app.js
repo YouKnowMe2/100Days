@@ -11,6 +11,7 @@ const errorHandler = require('./middlewares/error-handler');
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/products.routes');
 const baseRoutes = require('./routes/base.routes');
+const adminRoutes = require('./routes/admin.routes');
 
 const app = express();
 app.set('view engine','ejs');
@@ -30,6 +31,7 @@ app.use(checkAuthStatus);
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
+app.use('/admin',adminRoutes);
 
 app.use(errorHandler);
 
