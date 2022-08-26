@@ -14,7 +14,13 @@
     </section>
 
     <section>
-        <p>A list of Products....</p>
+       <ul>
+           <% for(const product of products ) { %>
+           <li>
+                    <%- include('../includes/product-item', { product: product } ) %>
+           </li>
+           <% } %>
+       </ul>
     </section>
 </main>
 <%- include('../../shared/includes/footer' ) %>
