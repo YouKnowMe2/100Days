@@ -4,10 +4,13 @@ const db = require('./data/database');
 const csrf = require('csurf');
 const expressSession = require('express-session');
 
-const checkAuthStatus = require('./middlewares/check-auth');
 const createSessionConfig = require('./config/session');
+
+const checkAuthStatus = require('./middlewares/check-auth');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandler = require('./middlewares/error-handler');
+
+
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/products.routes');
 const baseRoutes = require('./routes/base.routes');
