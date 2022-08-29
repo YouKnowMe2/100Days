@@ -9,6 +9,7 @@ const createSessionConfig = require('./config/session');
 const checkAuthStatus = require('./middlewares/check-auth');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandler = require('./middlewares/error-handler');
+const protectRoutes = require('./middlewares/protect-routes');
 
 
 const authRoutes = require('./routes/auth.routes');
@@ -35,6 +36,7 @@ app.use(checkAuthStatus);
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
+app.use(protectRoutes);
 app.use('/admin',adminRoutes);
 
 app.use(errorHandler);
