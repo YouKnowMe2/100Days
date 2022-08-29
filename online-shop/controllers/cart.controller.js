@@ -13,7 +13,7 @@ async function addCartItem(req,res,next){
 
         res.status(201).json({
             message: 'Cart Updated',
-            newTotalItem: cart.totalQuantity,
+            newTotalItem: res.locals.cart.totalQuantity,
         });
 }
 
