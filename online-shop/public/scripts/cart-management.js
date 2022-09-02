@@ -13,7 +13,8 @@ async function addToCart(){
                 _csrf: csrfToken,
             }),
             headers: {
-                'Content-type': 'application/json'
+                'Content-type'
+                    : 'application/json'
             }
         });
 
