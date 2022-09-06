@@ -3,9 +3,15 @@ const express = require('express');
 const db = require('./data/database');
 const app = express();
 
+app.use(express.json());
+
 const quoteRoutes = require('./routes/quotes.routes');
+const todosRoutes = require('./routes/todos.routes');
+
+
 
 app.use('/quotes',quoteRoutes);
+app.use('/todos',todosRoutes);
 
 app.use(function (req, res,next){
    res.status(500).json({
