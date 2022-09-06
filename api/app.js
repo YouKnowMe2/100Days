@@ -2,9 +2,10 @@ const express = require('express');
 
 const db = require('./data/database');
 const app = express();
-
+const enableCors = require('./middlewares/cors');
 app.use(express.json());
 
+app.use(enableCors);
 const quoteRoutes = require('./routes/quotes.routes');
 const todosRoutes = require('./routes/todos.routes');
 
